@@ -61,11 +61,13 @@
     const results = await response.json()
 
     render(document.body, html`
-    <div>
+    <div><table><tr><td>Folder Name </td></tr>
       ${results.filter(el => el.type === 'dir').map(el => html`
       <a
         class="directory"
-       href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" /> ${el.name}`)}
+       href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" /> ${el.name} </a>`)} 
+</td></tr></table>
+
     </div>
     `)
   
