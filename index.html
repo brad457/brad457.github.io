@@ -64,14 +64,7 @@
         class="directory"
        href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="folder.png" alt="${el.name}" /></td><td>${el.name}</a></td><td></td></tr>`)}
     `)
-   render(document.body, html`
-   <tr><td>Object Type</td><td>Object Name</td><td>Size</td></tr>
-      ${results.filter(el => el.type === 'file').map(el => html`
-      <a
-        class="file"
-       href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="folder.png" alt="${el.name}" /></td><td>${el.name}</a></td>${el.size}<td></td></tr>`)}
-    `)
-    
+       
 
   }
 </table>
