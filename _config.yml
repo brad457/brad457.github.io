@@ -1,1 +1,5 @@
 theme: jekyll-theme-cayman
+directory_listing_title: "Contents: "
+directory_listing_prefix: "Contents of "
+
+{% directory_listing Further reading: %}
