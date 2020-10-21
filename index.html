@@ -61,15 +61,15 @@
     const results = await response.json()
 
     render(document.body, html`
-    <div><table><tr><td>Folder Name </td></tr>
+    <div><table><tr><td>Object Type</td><td>Object Name</td><td>Size</td></tr>
       ${results.filter(el => el.type === 'dir').map(el => html`
       <a
         class="directory"
-       href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" />${el.name}</a>`)}
+       href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="folder.png" alt="${el.name}" /></td><td>${el.name}</a></td><td></td></tr>`)}
  ${results.filter(el => el.type === 'file').map(el => html`
       <a
         class="file"
-       href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" />${el.name}</a> ${el.size}`)} 
+       href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="file.png" alt="${el.name}" /></td><td>${el.name}</a></td><td>${el.size}</td></tr>`)} 
 </td></tr></table>
 
     </div>
