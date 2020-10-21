@@ -65,7 +65,11 @@
       ${results.filter(el => el.type === 'dir').map(el => html`
       <a
         class="directory"
-       href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" /> ${el.name} </a>`)} 
+       href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" />${el.name}</a>`)}
+ ${results.filter(el => el.type === 'file').map(el => html`
+      <a
+        class="file"
+       href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" />${el.name}</a> ${el.size}`)} 
 </td></tr></table>
 
     </div>
