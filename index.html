@@ -66,14 +66,8 @@
       <a
         class="directory"
        href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" /> ${el.name}`)}
-    </div>
-    <div class="gallery">
-      ${results.filter(el => el.name.match(/\.(gif|jpe?g|tiff?|png|webp|bmp|svg)$/i)).map(el => html`
-        <a
-          class="img"
-          href="${`https://brad457.github.io/${pathname}${el.name}`}"
-          style="${`background-image: url(https://brad457.github.io/${pathname}${el.name})`}">`)}`)
-  
+ </a>    </div>
+   
 
   }
 
