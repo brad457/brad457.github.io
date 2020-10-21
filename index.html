@@ -66,11 +66,7 @@
       <a
         class="directory"
        href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="folder.png" alt="${el.name}" /></td><td>${el.name}</a></td><td></td></tr>`)}
- ${results.filter(el => el.type === 'file').map(el => html`
-      <a
-        class="file"
-       href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="file.png" alt="${el.name}" /></td><td>${el.name}</a></td><td>${el.size}</td></tr>`)} 
-</td></tr></table>
+</table>
 
     </div>
     `)
