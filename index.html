@@ -54,17 +54,21 @@
       render(document.body, html`
       <tr><td>Object Type</td><td>Object Name</td><td>Size</td></tr>
       ${results.filter(el => el.type === 'dir').map(el => html`
-      <a
+      <tr><td><a
         class="directory"
-        href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="folder.png" alt="${el.name}" /></td><td>${el.name}</a></td><td></td></tr>`)}
+        href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" /></a></td><td><a
+        class="directory"
+        href="${`https://brad457.github.io/${pathname}${el.name}`}">${el.name}</a></td><td></td></tr>`)}
         `)
         // Output results of files to page
         render(document.body, html`
         <tr><td>Object Type</td><td>Object Name</td><td>Size</td></tr>
         ${results.filter(el => el.type === 'file').map(el => html`
-        <a
+        <tr><td><a
           class="file"
-          href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="file.png" alt="${el.name}" /></td><td>${el.name}</a></td><td>${el.size}</td></tr>`)}
+          href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="file.png" alt="${el.name}" /></a></td><td><a
+          class="file"
+          href="${`https://brad457.github.io/${pathname}${el.name}`}">${el.name}</a></td><td>${el.size}</td></tr>`)}
           `)
           // Test if GitHub Pages request returned results
           //document.write(results);
