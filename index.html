@@ -50,10 +50,14 @@
       const response = await fetch(`https://api.github.com/repos/brad457/brad457.github.io/contents${pathname}`)
       // get directory listing request results
       const results = await response.json()
+      // assign results to variable for directories
+      const dir_results = results
+      // assign results to variable for files
+      const file_results = results
       // Output results of directories to page
       render(document.body, html`
       <tr><td>Object Type</td><td>Object Name</td><td>Size</td></tr>
-      ${results.filter(el => el.type === 'dir').map(el => html`
+      ${dir_results.filter(el => el.type === 'dir').map(el => html`
       <tr><td><a
         class="directory"
         href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="folder.png" alt="${el.name}" /></a></td><td><a
@@ -63,7 +67,7 @@
         // Output results of files to page
         render(document.body, html`
         <tr><td>Object Type</td><td>Object Name</td><td>Size</td></tr>
-        ${results.filter(el => el.type === 'file').map(el => html`
+        ${file_results.filter(el => el.type === 'file').map(el => html`
         <tr><td><a
           class="file"
           href="${`https://brad457.github.io/${pathname}${el.name}`}"><img src="file.png" alt="${el.name}" /></a></td><td><a
