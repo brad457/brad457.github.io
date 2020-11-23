@@ -68,11 +68,15 @@ function addLoadEvent(func) {
   }
 }
 addLoadEvent(listDIRs);
-addLoadEvent(listFiles);
-addLoadEvent(function() {
+// 2nd and 3rd Load Events Comment Out - BEGIN 
+//addLoadEvent(listFiles);
+/** addLoadEvent(function() {
   console.log("addLoadEvent function() started");
     document.body.style.backgroundColor = '#EFDF95';
-})
+}) **/
+// 2nd and 3rd Load Events Comment Out - END
+      
+      
 </script>
 </body>
 </html>
