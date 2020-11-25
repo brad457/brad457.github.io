@@ -1,5 +1,131 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - Custom CSS mouse cursor test</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  
+  
+<style>
+body {
+  font-family: helvetica;
+  background: #eee;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+form {
+  margin-top: 2em;
+}
+
+.hide {
+  position: absolute;
+  left: -10000px;
+}
+
+label {
+  display: inline-block;
+  background: gray;
+  margin: 25px;
+  position: relative;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 2px;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+#happy ~ .option-happy {
+  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"), auto;
+}
+#happy:checked ~ .option-happy {
+  background: green;
+}
+
+#sad ~ .option-sad {
+  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/sad.png"), auto;
+}
+#sad:checked ~ .option-sad {
+  background: red;
+}
+
+#meh ~ .option-meh {
+  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/meh.png"), auto;
+}
+#meh:checked ~ .option-meh {
+  background: orange;
+}
+
+/*** Added 2020.11.24 - 4 Testing **/
+.guy, .guy a {
+  color: white;
+  text-decoration: none;
+  text-shadow: 2px 2px #000;
+}
+
+.guy a {
+  color: white;
+}
+
+/* unvisited link */
+.guy a:link {
+  color: red;
+}
+
+/* visited link */
+.guy a:visited {
+  color: green;
+}
+
+/* mouse over link */
+.guy a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+.guy a:active {
+  color: blue;
+}
+
+#box {
+  width: 953px;
+  height: 323px;
+  background-image: url("https://raw.githubusercontent.com/brad457/brad457.github.io/main/House.jpg");
+}
+</style>
+
+  
+  
+  
+  
+
+</head>
+
+<body translate="no" >
   <form>
-  <h1>How are you feeling today?</h1>
+  <h1>How are you feeling today? LOL</h1>
     <br /><div id="box"><br /><br />hi<br />
     <br /><br /><br /><br /><a href="https://google.com" class="guy">GUY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
     <input class="hide" type="checkbox" title="Happy" name="happy" id="happy">
@@ -13,3 +139,13 @@
 </form>
 
 <span class="option-meh"> HOLY FUCKING SHIT BALLS </span>
+  
+  
+  
+  
+  
+
+</body>
+
+</html>
+ 
