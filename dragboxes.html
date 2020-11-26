@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="http://threedubmedia.com/inc/js/jquery-1.7.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drag-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drag.live-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drop-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/jquery.event.drop.live-2.2.js"></script>
+<script src="http://threedubmedia.com/inc/js/excanvas.min.js"></script>
+<style type="text/css">
+.drag {
+   position: absolute;
+   border: 1px solid #89B;
+   background: #BCE;
+   height: 58px;
+   width: 58px;
+   cursor: move;
+   top: 120px;
+   }
+</style>​
+</head>
+<body><script type="text/javascript">
+jQuery(function($){
+   $('.drag').drag(function( ev, dd ){
+      $( this ).css({
+         top: dd.offsetY,
+         left: dd.offsetX
+      });
+   });
+});
+</script>
+
+<h1>Basic Drag Demo</h1>
+<p>Drag the boxes around the screen.</p>
+<div class="drag" style="left:20px;"></div>
+<div class="drag" style="left:100px;"></div>
+<div class="drag" style="left:180px;"></div>
+
+
+</body>
+</html>
