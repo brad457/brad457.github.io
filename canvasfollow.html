@@ -1,0 +1,95 @@
+<html>
+   <head> 
+      <meta name="viewport" content="width=device-width, initial-scale=1"> 
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script> 
+      <style id="compiled-css" type="text/css">
+
+html, body {
+   width: 100%;
+   height: 100%;
+   margin: 0px;
+   border: 0;
+   overflow: hidden; /*  Disable scrollbars */
+   display: block;  /* No floating content on sides */
+}
+#canvas {
+  position: :absolute;
+  z-index: 1;
+ /* cursor: none; */
+}
+#texttest {
+  left: 200px;
+  margin: 0 auto;
+position: absolute;
+/*display:inline-block; */
+border: 3px solid #000;
+}
+      </style> 
+      <script type="text/javascript">
+    $(window).load(function(){// w ww  . j a v  a  2  s .c  o  m
+ $(function () {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var img = new Image();
+            img.src = "scope.png"
+           // var initialWidth = 500, initialHeight = 500;
+           // var initialImgWidth = 250, initialImgHeight = 250;
+            var initialWidth = 600, initialHeight = 1000;
+            var initialImgWidth = 423, initialImgHeight = 658;
+            var wRatio = initialImgWidth/initialWidth, hRatio = initialImgHeight/initialHeight;
+            Witch = new witch(100,100);
+            initialize();
+            animate();
+            function initialize() {
+              window.addEventListener('resize', resizeCanvas, false);
+                resizeCanvas();
+            }
+            function resizeCanvas() {
+              canvas.width = window.innerWidth;
+               canvas.height = window.innerHeight - 200;
+            }
+            function witch(x, y) {
+                this.x = x;
+                this.y = y;
+                this.Teken = function () {
+                    ctx.drawImage(img, this.x, this.y, canvas.width*wRatio, canvas.height*hRatio);
+                }
+            }
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                $("canvas").mousemove(function (event) {
+                    var mouseY = event.pageY;
+                    var mouseX = event.pageX;
+                    Witch.x = event.pageX-((canvas.width*wRatio)/2);
+                    Witch.y = event.pageY-((canvas.height*hRatio)/2);
+                });
+                Witch.Teken();
+                ctx.strokeStyle = 'blue';
+                ctx.lineWidth = '5';
+                ctx.strokeRect(0, 0, canvas.width, canvas.height);
+                setTimeout(animate, 6);
+                $("#1").html("canvas width" + canvas.width + "<br/>");
+                $("#1").append("Canvas Height" + canvas.height + "<br/>");
+                $("#1").append("Witch X " + Witch.x + "<br/>");
+                $("#1").append("Witch Y" + Witch.y + "<br/>");
+            }
+        });
+    });
+
+      </script> 
+   </head> 
+   <body>
+    <div id="texttest"><a href="https://bradswiki.ga">BLAH</a></div> 
+      <canvas id="canvas" width="500" height="500">
+      </canvas>
+       
+        <br /><br />
+        <br /><br />
+        <br /><br />
+      <a href="http://google.com"> Test </a>
+      <a href="http://google.com"> Test </a> 
+      <div id="1"></div> 
+      <div id="2"></div> 
+      <div id="3"></div>  
+   </body>
+</html>
