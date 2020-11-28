@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>jQuery addClass example</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="jquery.js"></script>
+
+<!--    <link rel="stylesheet" type="text/css" href="/css/result-light.css"> -->
+
+
+  <style id="compiled-css" type="text/css">
+      body {
+  position: relative;
+/**   cursor: none; **/
+}
+
+#results {
+  font-family: "Arial", sans-serif;
+  font-size: 0.85em;
+  float: right;
+}
+
+.cursor {
+  position: absolute;
+  background-image: url(https://i.imgur.com/ZWTRmeb.png);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 0;
+  margin-top: 0;
+  width: 28px;
+  height: 28px;
+}
+
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+
+</head>
+<body>
+
+    <div class="cursor"></div>
+<div id="results"></div>
+
+<img src="workplace.jpg" alt="Workplace" usemap="#workmap" width="400" height="379">
+
+<map name="workmap">
+  <area shape="rect" coords="34,44,270,350" alt="Computer" href="https://www.amd.com/en">
+  <area shape="rect" coords="290,172,333,250" alt="Phone" href="https://www.apple.com/iphone/">
+  <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="https://www.starbucks.com/">
+</map>
+<a href="http://google.com">Google!</a>
+
+
+    <script type="text/javascript">//<![CDATA[
+
+
+$(function() {
+  function log(eObj) {
+    var str = eObj.type + " [" + eObj.top + "," + eObj.left + "]";
+    $("#results").html(str);
+  }
+
+  function moveCursor(e) {
+    var p;
+    var o = {
+      x: 55,
+      y: 45
+    };
+    if (e.type == "mousemove") {
+      p = {
+       // left: Math.round(e.pageX - o.x + 40),
+       // top: Math.round(e.pageY - o.y + 27),
+        left: Math.round(e.pageX - o.x),
+        top: Math.round(e.pageY - o.y),
+        type: e.type
+      };
+    } else if (e.type == "touchmove") {
+      var touch = e.changedTouches[0];
+      p = {
+       // left: Math.round(touch.pageX - o.x + 40),
+       // top: Math.round(touch.pageY - o.y + 27),
+        left: Math.round(touch.pageX - o.x),
+        top: Math.round(touch.pageY - o.y),
+        type: e.type
+      }
+    }
+    $('.cursor').css(p);
+    log(p);
+  }
+
+  $(document).on({
+    metaousemove: moveCursor,
+    touchmove: moveCursor
+  });
+});
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "rqbu4p6e"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+</body>
+</html>
