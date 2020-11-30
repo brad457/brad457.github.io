@@ -54,8 +54,8 @@
 const pathname = window.location.pathname
 
     
-    const response = await fetch(`https://api.github.com/repos/geolytix/mapicons/contents${pathname}`)
-  //const response = await fetch(`https://api.github.com/repos/brad457/brad457.github.io/contents${pathname}`)
+   // const response = await fetch(`https://api.github.com/repos/geolytix/mapicons/contents${pathname}`)
+  const response = await fetch(`https://api.github.com/repos/brad457/brad457.github.io/contents${pathname}`)
 
     const results = await response.json()
 
@@ -66,9 +66,7 @@ const pathname = window.location.pathname
         class="directory"
        href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="folder.png" alt="${el.name}" /></td><td>${el.name}</a></td><td></td></tr>`)}
     `)
-       
-
-  //document.write(results);  
+  document.write(results);  
   }
 </script>
 </table>
