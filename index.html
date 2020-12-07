@@ -108,21 +108,8 @@ const pathname = window.location.pathname;
         href="${`https://geolytix.github.io/MapIcons${pathname}${el.name}`}">${el.name}`)}
     </div>
     <div class="files">
-     /** ${results.filter(el => el.name.match(/\.(gif|jpe?g|tiff?|png|webp|bmp|svg)$/i)).map(el => html`
-        <a
-          class="img"
-          href="${`https://geolytix.github.io/MapIcons${pathname}${el.name}`}"
-          style="${`background-image: url(https://geolytix.github.io/MapIcons${pathname}${el.name})`}">`)}`)
-    
-    
-      ${results.filter(el => el.type === 'dir').map(el => html`
-      <a
-        class="file"
-        href="${`https://geolytix.github.io/MapIcons${pathname}${el.name}`}">${el.name}`)}
-    </div>
-    
-  **/
-    `)}`)
+     
+    </div>`)}`)
   
 
   }
