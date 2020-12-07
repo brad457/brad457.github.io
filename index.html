@@ -45,51 +45,10 @@
 <body>
 <div><table>
 <script  type="module">
-/**
-  import {render, html} from 'https://unpkg.com/uhtml?module';
 
-  window.onload = async () => {
-
-  //  const pathname = window.location.pathname.replace(/\/MapIcons/, '');
-const pathname = window.location.pathname;
-
-//console.log("Object" + pathname);    
-  //  const response = await fetch(`https://api.github.com/repos/geolytix/mapicons/contents${pathname}`)
-  const response = await fetch(`https://api.github.com/repos/brad457/brad457.github.io${pathname}`)
-
-    const results = await response.json()
-//original - BEGIN
-   render(document.body, html`
-    <tr><td>Object Type</td><td>Object Name</td><td>Size</td></tr>
-      ${results.filter(el => el.type === 'dir').map(el => html`
-      <a
-        class="directory"
-       href="${`https://brad457.github.io/${pathname}${el.name}`}"><tr><td><img src="folder.png" alt="${el.name}" /></td><td>${el.name}</a></td><td></td></tr>`)}
-    `)
-//original - END       
-
-    
-     render(document.body, html`
-    <div>
-      ${results.filter(el => el.type === 'dir').map(el => html`
-      <a
-        class="directory"
-        href="${`https://geolytix.github.io/MapIcons${pathname}${el.name}`}">${el.name}`)}
-    </div>
-    <div class="gallery">
-      ${results.filter(el => el.name.match(/\.(gif|jpe?g|tiff?|png|webp|bmp|svg)$/i)).map(el => html`
-        <a
-          class="img"
-          href="${`https://geolytix.github.io/MapIcons${pathname}${el.name}`}"
-          style="${`background-image: url(https://geolytix.github.io/MapIcons${pathname}${el.name})`}">`)}`)
-  
-//document.write(results);  
-  }
-  
-  **/
   
   
-  import {render, html} from 'https://unpkg.com/uhtml?module';
+    import {render, html} from 'https://unpkg.com/uhtml?module';
 
   window.onload = async () => {
 
@@ -105,14 +64,17 @@ const pathname = window.location.pathname;
       ${results.filter(el => el.type === 'dir').map(el => html`
       <a
         class="directory"
-        href="${`https://geolytix.github.io/MapIcons${pathname}${el.name}`}">${el.name}`)}
+        href="${`https://brad457.github.io/${pathname}${el.name}`}">${el.name})}
+
     </div>
     <div class="files">
      
-    </div>`)}`)
+    </div>`)
   
 
   }
+`)
+}
  
 </script>
 </table>
