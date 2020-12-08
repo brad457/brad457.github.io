@@ -14,14 +14,17 @@
         color: #eee;
       }
     </style>
-
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
   <img src="https://bradsgit.tk/hackerman.png" />
   <br />  Brad's <b>Github Pages</b> Site directory listing:
 <div>
-<script  type="module">
+  <script  type="module">
     import {render, html} from 'https://unpkg.com/uhtml?module';
 
     const prefix = "https://bradsgit.tk/";
@@ -46,7 +49,27 @@
           href="${`https://bradsgit.tk/${pathname}${el.name}`}" >${el.name}</a>
         </td><td>${el.size}</td></tr>`)}</table>`)
 
+      var newhead = document.head;
 
+      document.head.innerHTML =  newhead.innerHTML + "<style>\n" +
+        "  body {\n" +
+        "        background-color: #ccc;\n" +
+        "        color: #fff;\n" +
+        "      }\n" +
+        "  #banner {\n" +
+        "        color: #000;" +
+        "        font-size: 150%;" +
+        "      }\n" +
+        "  #logo {\n" +
+        "        width: 125px;" +
+        "        height: 125px;" +
+        "      }\n" +
+        "    </style>" + "<link rel=\"apple-touch-icon\" sizes=\"180x180\" href="\/favicon/apple-touch-icon.png\">\n" + 
+"<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon/favicon-32x32.png\">\n" +
+"<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon/favicon-16x16.png\">\n" +
+"<link rel=\"manifest\" href=\"/site.webmanifest\">\n";
+      var newbody = document.body;
+     document.body.innerHTML = '<div id="banner"><b>Brad\'s Git</b> - /</div> <img id="logo" src="https://bradsgit.tk/hackerman.png" />' + newbody.innerHTML;
     }
   </script>
 </div>
