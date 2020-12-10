@@ -15,10 +15,15 @@
       }
  .logo {
         display: block;
-        width: 50%;
-        height: 50%;
+        width: 30%;
+        height: 30%;
         margin-left: auto;
-        margin-right: auto;    
+        margin-right: auto;
+  .logotext {
+              font-size: 20pt;
+              margin-left: auto;
+              margin-right: auto;
+   }
     </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -28,7 +33,7 @@
 
 <body>
   <img id="logo" src="https://bradsgit.tk/hackerman.png" class="logo" />
-  <br />  Brad's <b>Github Pages</b>
+  <br />  <span id="logotext"> Brad's <b>Github Pages</b></span>
 <div>
   <script  type="module">
     import {render, html} from 'https://unpkg.com/uhtml?module';
