@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <title>JS Query String Testing</title>
+ <script type="text/javascript">
+  
+  // Assign Query String to variable
+  const params = new URLSearchParams(window.location.search)
+  
+  // Create div to append result to body
+  var myDiv = document.createElement("div");
+ 
+  //Set ID for div
+  myDiv.id = 'debug';
+ 
+  //Add variable value to DIV
+  myDiv.innerHTML = "<h1>" + params + "</h1>";
+ 
+//Finally, append the element to the HTML body
+document.body.appendChild(myDiv);
+ </script>
+</head>
+
+<body>
+</body>
+</html>
