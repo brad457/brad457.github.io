@@ -62,9 +62,11 @@
     if (pathname.startsWith("/")) {
       if (pathname.substring(0,2) == "//") {
         newpathname = pathname.replace("//","/");
-      } else {
+      } 
+      /**else {
         newpathname = pathname.replace("/","");
-      }
+        }
+**/
     }
     // Fix extra backslashes from being generated - END
     
