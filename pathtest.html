@@ -62,7 +62,6 @@
       
       // Path / File
       const pathname = getParameterByName('path');
-      
       const response = await fetch(`https://api.github.com/repos/brad457/brad457.github.io/contents${pathname}`)
 
       const results = await response.json()
@@ -71,11 +70,11 @@
       ${results.filter(el => el.type === 'dir').map(el => html`
       <tr><td><img src="https://bradsgit.tk/folder.png" /></td><td><a
         class="directory"
-        href="${`https://bradsgit.tk/pathtest.html?=path=${pathname}${el.name}`}">${el.name}`)}
+        href="${`https://bradsgit.tk/pathtest.html?path=${pathname}/${el.name}`}">${el.name}`)}
       </td><td></td></tr>
       ${results.filter(el => el.type === 'file').map(el => html`
         <tr><td><img src="https://bradsgit.tk/file.png" /></td><td><a
-          href="${`https://bradsgit.tk/${pathname}${el.name}`}" >${el.name}</a>
+          href="${`https://bradsgit.tk/${pathname}/${el.name}`}" >${el.name}</a>
         </td><td>${el.size}</td></tr>`)}</table>`)
 
       var newhead = document.head;
