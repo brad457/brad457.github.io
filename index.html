@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,6 +67,9 @@
     // Clean up of querystring starting with backslash or multiple backslashes
     // Fix extra backslashes from being generated - BEGIN
     var pathname = getParameterByName('path');
+    if(pathname == null) { 
+		pathname = "/";
+    }
     pathname = pathname.replace("//","/");
     
     if (pathname == "/") {
