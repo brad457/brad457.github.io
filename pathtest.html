@@ -11,7 +11,7 @@
   <style>
   body {
         background-color: #666;
-        color: #eee;
+        color: #000;
       }
  #logo {
         display: block;
@@ -29,6 +29,15 @@
               color: #00c6ec;
               text-shadow: 2px 2px 2px #000000;
             }
+    a.directory:link {color:#0066ff;text-decoration:none;}
+    a.directory:visited {color:#0000ff;text-decoration:none;}
+    a.directory:active {color: #0033ff;text-decoration:none;}
+    a.directory:hover {color: #0099ff;text-decoration:underline;}
+   
+    a.file:link {color:#ff66ff;text-decoration:none;}
+    a.file:visited {color:#ff00ff;text-decoration:none;}
+    a.file:active {color: #ff33ff;text-decoration:none;}
+    a.file:hover {color: #ff99ff;text-decoration:underline;} 
     </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -83,7 +92,7 @@
       </td><td></td></tr>
       ${results.filter(el => el.type === 'file').map(el => html`
         <tr><td><img src="https://bradsgit.tk/file.png" /></td><td><a
-          href="${`https://bradsgit.tk${pathname}/${el.name}`}" >${el.name}</a>
+          class="file" href="${`https://bradsgit.tk${pathname}/${el.name}`}" >${el.name}</a>
         </td><td>${el.size}</td></tr>`)}</table>`)
 
       var newhead = document.head;
