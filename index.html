@@ -39,6 +39,28 @@
     a.file:visited {color:#ff00ff;text-decoration:none;}
     a.file:active {color: #ff33ff;text-decoration:none;}
     a.file:hover {color: #ff99ff;text-decoration:underline;} 
+	table, tr, td {
+		border: 1px solid #000;
+		border-collapse: collapse;
+	}
+
+    img.directory {
+    	width: 25px;
+    }
+    img.file {
+    	width: 25px;
+    }
+    #banner a, #banner a:link, #banner a:hover, #banner a:visited, #banner a:active {
+    	display: block;
+        font-size: 20pt;
+        color: #00c6ec;
+        text-shadow: 2px 2px 2px #000000;
+          }
+    /** #banner a,#banner a:link, #banner a:hover {color: #00c6ec;} **/
+    #banner a,#banner a:link, #banner a:active {text-decoration:none;}
+   	/* #banner a:visited {color:#0000ff;text-decoration:none;}
+    #banner a:active {color: #0033ff;text-decoration:none;} 
+    #banner a:hover {text-decoration:underline;} */
     </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -76,7 +98,13 @@
       pathname = "";
     }
     // Fix extra backslashes from being generated - END
-   
+    // Format size in human readable format - BEGIN
+	  //Source: https://stackoverflow.com/a/62703368
+	  function formatNum(Num=0, dec=2){
+		  if (Num<1000) return Num+" Bytes";
+		  Num =("0".repeat((Num+="").length*2%3)+Num).match(/.{3}/g);
+		  return Number(Num[0])+"."+Num[1].substring(0,dec)+" "+"  kMGTPEZY"[Num.length]+"B";
+	  }
     
     window.onload = async () => {
 
@@ -88,16 +116,16 @@
 
       const results = await response.json()
 
-      render(document.body, html`<table><tr><td></td><td>Name</td><td>Size</td></tr>
-      ${results.filter(el => el.type === 'dir').map(el => html`
-      <tr><td><img src="https://bradsgit.tk/folder.png" /></td><td><a
+      render(document.body, html`<table><tr><th colspan=2><b>Name</b></th><th><b>Size</b></th></tr>
+	  ${results.filter(el => el.type === 'dir').map(el => html`
+      <tr><td><img class="directory" src="https://bradsgit.tk/folder.png" /></td><td><a
         class="directory"
-        href="${`https://bradsgit.tk/index.html?path=${pathname}/${el.name}`}">${el.name}`)}
-      </td><td></td></tr>
+        href="${`https://bradsgit.tk/index.html?path=${pathname}/${el.name}`}">${el.name}</td><td></td></tr>`)}
+      
       ${results.filter(el => el.type === 'file').map(el => html`
-        <tr><td><img src="https://bradsgit.tk/file.png" /></td><td><a
+        <tr><td><img class="file" src="https://bradsgit.tk/file.png" /></td><td><a
           class="file" href="${`https://bradsgit.tk${pathname}/${el.name}`}" >${el.name}</a>
-        </td><td>${el.size}</td></tr>`)}</table>`)
+        </td><td>${formatNum(el.size)}</td></tr>`)}</table>`)
 
       var newhead = document.head;
 
@@ -106,6 +134,9 @@
         "        background-color: #ccc;\n" +
         "        color: #000;\n" +
         "      }\n" +
+        "  .gp {\n" +
+        "		font-weight: bold;\n" +
+        "		}\n" +
         "  #banner {\n" +
         "        color: #000;" +
         "        font-size: 150%;" +
@@ -119,7 +150,7 @@
 "<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicons/favicon-16x16.png\">\n" +
 "<link rel=\"manifest\" href=\"/site.webmanifest\">\n";
       var newbody = document.body;
-     document.body.innerHTML = '<div id="banner"><a href="/"><b>Brad\'s <b>Github Pages</b></a></div><a href="/"><img src="https://bradsgit.tk/hackerman.png" /></a><div id="dir"><br />Directory Listing - ' + pathname + ' </div>' + newbody.innerHTML;
+     document.body.innerHTML = '<div id="banner"><a href="/"><b>Brad\'s <span class="gp">Github Pages</span></a></div><a href="/"><img src="https://bradsgit.tk/hackerman.png" /></a><div id="dir"><br />Directory Listing - ' + pathname + ' </div>' + newbody.innerHTML;
     }
   </script>
 </div>
