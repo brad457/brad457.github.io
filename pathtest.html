@@ -54,8 +54,22 @@
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-        
-const pathname = getParameterByName('path');
+    // Clean up of querystring starting with backslash or multiple backslashes
+    // Fix extra backslashes from being generated - BEGIN
+    var pathname = getParameterByName('path');
+    var newpathname = "";
+    
+    if (pathname.startsWith("/")) {
+      if (pathname.substring(0,2) == "//") {
+        newpathname = pathname.replace("//","/");
+      } else {
+        newpathname = pathname.replace("/","");
+      }
+    }
+    // Fix extra backslashes from being generated - END
+    
+    pathname = newpathname;
+    
     window.onload = async () => {
 
       //const pathname = "";
