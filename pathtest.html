@@ -57,17 +57,11 @@
     // Clean up of querystring starting with backslash or multiple backslashes
     // Fix extra backslashes from being generated - BEGIN
     var pathname = getParameterByName('path');
-    //var newpathname = "";
+    pathname = pathname.replace("//","/");
     
-    
-    //if (pathname.substring(0,2) == "//") {
-        pathname = pathname.replace("//","/");
-   // } 
-      /**else {
-        newpathname = pathname.replace("/","");
-        }
-**/
-    
+    if (pathname == "/") {
+      pathname = "";
+    }
     // Fix extra backslashes from being generated - END
    
     
