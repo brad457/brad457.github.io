@@ -74,7 +74,7 @@ const pathname = getParameterByName('path');
       </td><td></td></tr>
       ${results.filter(el => el.type === 'file').map(el => html`
         <tr><td><img src="https://bradsgit.tk/file.png" /></td><td><a
-          href="${`https://bradsgit.tk/${pathname}/${el.name}`}" >${el.name}</a>
+          href="${`https://bradsgit.tk${pathname}/${el.name}`}" >${el.name}</a>
         </td><td>${el.size}</td></tr>`)}</table>`)
 
       var newhead = document.head;
@@ -97,7 +97,7 @@ const pathname = getParameterByName('path');
 "<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicons/favicon-16x16.png\">\n" +
 "<link rel=\"manifest\" href=\"/site.webmanifest\">\n";
       var newbody = document.body;
-     document.body.innerHTML = '<div id="banner"><b>Brad\'s <b>Github Pages</b></div><img src="https://bradsgit.tk/hackerman.png" /><div id="dir"><br />Directory Listing - / </div>' + newbody.innerHTML;
+     document.body.innerHTML = '<div id="banner"><a href=""><b>Brad\'s <b>Github Pages</b></a></div><a href="/"><img src="https://bradsgit.tk/hackerman.png" /></a><div id="dir"><br />Directory Listing - ' + pathname + ' </div>' + newbody.innerHTML;
     }
   </script>
 </div>
