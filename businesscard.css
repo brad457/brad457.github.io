@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+}
+
+.business-card {
+    width: 350px;
+    height: 200px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-content {
+    color: white;
+    text-align: center;
+    transform: translateY(-8px);
+}
+
+.card-content h1, .card-content p {
+    margin: 5px 0;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Embossed Text Effect */
+.card-content h1 {
+    color: transparent;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 2px 2px 1px rgba(0, 0, 0, 0.8);
+    font-size: 24px;
+}
+
+.card-content p {
+    font-size: 16px;
+}
