@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lip Sync App</title>
+    <link rel="stylesheet" href="mouthstyles.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <div class="controls">
+        <input type="text" id="phoneme-input" placeholder="Enter phoneme...">
+        <button class="control-button" onclick="lipSyncApp.changePhoneme()">Change Phoneme</button>
+        <p id="result" class="result">Current Phoneme: None</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="LipSyncApp.js"></script>
+    <script>
+        let lipSyncApp;
+
+        function setup() {
+            createCanvas(400, 600);
+            lipSyncApp = new LipSyncApp(canvas);
+        }
+
+        function draw() {
+            // Empty draw function for p5.js compatibility
+        }
+    </script>
+</body>
+</html>
